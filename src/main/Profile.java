@@ -2,6 +2,8 @@ package main;
 import java.util.*;
 
 public class Profile {
+	private String email;
+	private String password;
 	private String gender;
 	private int age;
 	private String userName;
@@ -11,14 +13,16 @@ public class Profile {
 	private String relationshipStatus;
 	public ArrayList<Post> profilePosts;
 	
-	public Profile(String gender, int age, String userName) {
+	public Profile(String email, String password, String gender, int age, String userName) {
 		 this.gender = gender;
 		 this.age = age;
 		 this.userName = userName;
+		 this.email = email;
+		 this.password = password;
 	}
 	
-	public void makeProfile(String gender, int age, String userName) {
-		Profile newProfile = new Profile(gender, age, userName);
+	public static void makeProfile(String email, String password, String gender, int age, String userName) {
+		Profile newProfile = new Profile(email, password, gender, age, userName);
 		
 		User.allUsers.add(newProfile);
 	}
@@ -41,6 +45,10 @@ public class Profile {
 	
 	public void setProfilePosts(Post newPost) {
 		this.profilePosts.add(newPost);
+	}
+	
+	public void setNewPassword(String newPassword) {
+		/* Enter old password before changing password. */
 	}
 	
 	/* =========================== */
@@ -67,6 +75,14 @@ public class Profile {
 	
 	public String getRS() {
 		return this.relationshipStatus;
+	}
+	
+	public String getEmail() {
+		return this.email;
+	}
+	
+	public String getPassword() {
+		return this.password;
 	}
 	
 	public String getUserName() {
