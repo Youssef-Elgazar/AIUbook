@@ -34,7 +34,7 @@ public class Post {
 		makePost(this.postContent, this.privacy, sharingProfile);
 	}
 	
-	public  String getPostContent() {
+	public String getPostContent() {
 		return this.postContent;
 	}
 	

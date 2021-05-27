@@ -105,7 +105,7 @@ public class User {
 			
 			break;
 		case 2:
-			
+			Feed.populateFeed();
 			break;
 		case 3:
 			
