@@ -9,7 +9,7 @@ public class Profile {
 	private String education;
 	private String work;
 	private String relationshipStatus;
-	private ArrayList<Post>profilePosts;
+	public ArrayList<Post> profilePosts;
 	
 	public Profile(String gender, int age, String userName) {
 		 this.gender = gender;
@@ -71,6 +71,10 @@ public class Profile {
 	
 	public String getUserName() {
 		return this.userName;
+	}
+	
+	public ArrayList<Post> getProfilePosts() {
+		return this.profilePosts;
 	}
 	
 
