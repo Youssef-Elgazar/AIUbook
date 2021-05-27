@@ -17,6 +17,12 @@ public class Profile {
 		 this.userName = userName;
 	}
 	
+	public void makeProfile(String gender, int age, String userName) {
+		Profile newProfile = new Profile(gender, age, userName);
+		
+		User.allUsers.add(newProfile);
+	}
+	
 	public void setBiography(String bio) {
 		this.biography = bio;
 	}
