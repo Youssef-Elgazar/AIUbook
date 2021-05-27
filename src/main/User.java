@@ -102,13 +102,13 @@ public class User {
 		
 		switch(choice) {
 		case 1:
-			
+			Feed.search();
 			break;
 		case 2:
 			Feed.populateFeed();
 			break;
 		case 3:
-			
+
 			break;
 		case 4:
 			

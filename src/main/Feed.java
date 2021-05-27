@@ -12,7 +12,7 @@ public class Feed {
 	      }   	
 	}
 	
-	public void search() {
+	public static void search() {
 		Scanner console = new Scanner(System.in);
 		String searchQuery;
 		
