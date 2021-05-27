@@ -5,8 +5,8 @@ public class Post {
 	private Profile postAuthor;
 	private String postContent;
 	private int numOfPostLikes;
-	private int numOfComments;
 	private ArrayList<String> postComments  = new ArrayList<String>();
+	private int numOfPostComments = postComments.size();
 	private String privacy;
 	
 	Post(String postContent, String privacy, Profile postCreator){
@@ -23,17 +23,27 @@ public class Post {
 	
 	public void comment(String newComment, Profile commenter) {
 		this.postComments.add(commenter.getUserName() + "\n" + newComment);
-		this.numOfComments++;
 	}
 	
 	public void like() {
-		this.numOfPostLikes++;
-		
 		// ISSUE: Same post can be liked by the same user multiple times.
+		this.numOfPostLikes++;
 	}
 	
 	public void share(Profile sharingProfile) {
 		makePost(this.postContent, this.privacy, sharingProfile);
+	}
+	
+	public  String getPostContent() {
+		return this.postContent;
+	}
+	
+	public int getNumOfPostComments() {
+		return this.numOfPostComments;
+	}
+	
+	public int getNumOfPostLikes() {
+		return this.numOfPostLikes;
 	}
 
 	
