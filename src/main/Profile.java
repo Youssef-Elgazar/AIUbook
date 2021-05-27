@@ -9,6 +9,7 @@ public class Profile {
 	private String education;
 	private String work;
 	private String relationshipStatus;
+	private ArrayList<Post>profilePosts;
 	
 	public Profile(String gender, int age, String userName) {
 		 this.gender = gender;
@@ -30,6 +31,10 @@ public class Profile {
 	
 	public void setRelationshipStatus(String relationStatus) {
 		this.relationshipStatus = relationStatus;
+	}
+	
+	public void setProfilePosts(Post newPost) {
+		this.profilePosts.add(newPost);
 	}
 	
 	/* =========================== */

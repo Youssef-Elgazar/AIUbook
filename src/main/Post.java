@@ -2,17 +2,23 @@ package main;
 import java.util.*;
 
 public class Post {
-	private User postAuthor;
+	private Profile postAuthor;
 	private String postContent;
 	private int numOfPostLikes;
 	private int numOfComments;
 	private ArrayList<String> postComments  = new ArrayList<String>();
 	private String privacy;
 	
-	Post(String postContent, String Privacy, User postCreator){
+	Post(String postContent, String privacy, Profile postCreator){
 		this.postContent = postContent;
 		this.privacy = privacy;
 		this.postAuthor = postCreator;
+	}
+	
+	public void makePost(String postContent, String Privacy, Profile postCreator) {
+		Post newPost = new Post(postContent, privacy, postCreator);
+		
+		postCreator.setProfilePosts(newPost);
 	}
 	
 	public void comment(String newComment, Profile commenter) {
@@ -26,9 +32,8 @@ public class Post {
 		// ISSUE: Same post can be liked by the same user multiple times.
 	}
 	
-	public void share() {
-		// ISSUE: Can't keep track of original poster and the sharer.
-		// ISSUE#2: Can't make new post because can't call a constructor in a method.
+	public void share(Profile sharingProfile) {
+		makePost(this.postContent, this.privacy, sharingProfile);
 	}
 
 	
