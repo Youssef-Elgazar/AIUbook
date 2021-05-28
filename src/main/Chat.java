@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+package main;
 import java.util.*;
 
 public class Chat {
