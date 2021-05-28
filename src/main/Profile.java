@@ -5,6 +5,7 @@ public class Profile {
 	private String email;
 	private String password;
 	private String gender;
+	public Friends friends = new Friends();
 	private int age;
 	private String userName;
 	private String biography;
@@ -51,6 +52,47 @@ public class Profile {
 		/* Enter old password before changing password. */
 	}
 	
+	public static void setAbout() {
+		Scanner console = new Scanner(System.in);
+		String choice;
+		System.out.println("What do you want to change about you? (Bio | Education | Work | Relationship Status");
+		choice = console.nextLine();
+		
+		switch(choice) {
+		case "Bio":
+		case "bio":
+			String newBio;
+			System.out.println("Enter your new biography...");
+			newBio = console.nextLine();
+			setBiography(newBio);
+			break;
+		case "Education":
+		case "education":
+			String newEdu;
+			System.out.println("Enter your new education...");
+			newEdu = console.nextLine();
+			setEducation(newEdu);
+			break;
+		case "Work":
+		case "work":
+			String newWork;
+			System.out.println("Enter your new work...");
+			newWork = console.nextLine();
+			setWork(newWork);
+			break;
+		case "Relationship status":
+		case "relationship status":
+			String newRS;
+			System.out.println("Enter your new relationship status...");
+			newRS = console.nextLine();
+			setRelationshipStatus(newRS);
+			break;
+		default:
+			System.out.println("Option does not exist, try again.");
+			setAbout();
+		}
+	}
+	
 	/* =========================== */
 	
 	public String getGender() {
@@ -89,8 +131,18 @@ public class Profile {
 		return this.userName;
 	}
 	
-	public ArrayList<Post> getProfilePosts() {
-		return this.profilePosts;
+	public void getAbout() {
+		System.out.println("Username: " + getUserName());
+		System.out.println("Age: " + getAge());
+		System.out.println("Gender: " + getGender());
+		System.out.println("Education: " + getEdu());
+		System.out.println("Work: " + getWork());
+		System.out.println("Relationship status: " + getRS());
+		System.out.println("Biography: " + getBio());
+	}
+	
+	public String getProfilePosts() {
+		return this.profilePosts.toString();
 	}
 	
 

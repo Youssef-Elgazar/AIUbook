@@ -7,7 +7,7 @@ public class Post {
 	private int numOfPostLikes;
 	private ArrayList<String> postComments  = new ArrayList<String>();
 	private int numOfPostComments = postComments.size();
-	private String privacy;
+	private static String privacy;
 	
 	Post(String postContent, String privacy, Profile postCreator){
 		this.postContent = postContent;
@@ -15,7 +15,7 @@ public class Post {
 		this.postAuthor = postCreator;
 	}
 	
-	public void makePost(String postContent, String Privacy, Profile postCreator) {
+	public static void makePost(String postContent, String Privacy, Profile postCreator) {
 		Post newPost = new Post(postContent, privacy, postCreator);
 		
 		postCreator.setProfilePosts(newPost);

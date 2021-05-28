@@ -46,7 +46,7 @@ public class User {
 		for (int x = 0; x < User.allUsers.size(); x++) {
 				if(email.equals(User.allUsers.get(x).getEmail()) && password.equals(User.allUsers.get(x).getPassword())) {
 					System.out.println("Login successful!");
-					enterProfile(User.allUsers.get(x));
+					currentSession(User.allUsers.get(x));
 				} else {
 					/* Handle Login failure. */
 				}
@@ -82,8 +82,45 @@ public class User {
 		startup();
 	}
 	
-	public static void enterProfile(Profile currentSession) {
+	public static void currentSession(Profile currentSession) {
 		Scanner console = new Scanner(System.in);
+		int choice;
+		showProfileMenu();
+		choice = console.nextInt();
+		
+		switch(choice) {
+		case 1:
+			currentSession.getAbout();
+			break;
+		case 2:
+			String postContent, postPrivacy;
+			System.out.println("What's on your mind?");
+			postContent = console.nextLine();
+			System.out.println("Who do you want to show this to? (Public | Friends)");
+			postPrivacy = console.nextLine();
+			Post.makePost(postContent, postPrivacy, currentSession);
+			break;
+		case 3:
+			currentSession.getProfilePosts();
+			break;
+		case 4:
+			currentSession.friends.view();
+			break;
+		case 5:
+			
+			break;
+		case 6:
+			break;
+		case 7:
+			Profile.setAbout();
+			break;
+		case 8:
+			break;
+		case 9:
+			break;
+		default:
+			break;
+		}
 		
 	}
 	
@@ -108,7 +145,6 @@ public class User {
 			Feed.populateFeed();
 			break;
 		case 3:
-
 			break;
 		case 4:
 			
@@ -124,6 +160,21 @@ public class User {
 			}
 		}
 		
+	}
+	
+	public static void showProfileMenu() {
+		System.out.println("1. Show About.");
+		System.out.println("2. Make new post.");
+		System.out.println("3. Show your posts.");
+		System.out.println("4. Show friends.");
+		System.out.println("5. Show groups.");
+		System.out.println("6. Show pages.");
+		System.out.println("-----------------------");
+		System.out.println("7. Edit about."); //******************************
+		System.out.println("8. Edit friends and followers.");
+		System.out.println("9. Edit pages and groups.");
+		System.out.print("Choose option: ");
+		System.out.print("~> ");
 	}
 
 }
