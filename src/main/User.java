@@ -137,7 +137,7 @@ public class User {
 			// Show pages.
 			break;
 		case 7:
-			Profile.setAbout();
+			Profile.setAbout(currentSession);
 			break;
 		case 8:
 			// Edit F and F.

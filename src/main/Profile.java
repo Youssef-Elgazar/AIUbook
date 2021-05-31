@@ -52,7 +52,7 @@ public class Profile {
 		/* Enter old password before changing password. */
 	}
 	
-	public static void setAbout() {
+	public static void setAbout(Profile currentProfile) {
 		Scanner console = new Scanner(System.in);
 		String choice;
 		System.out.println("What do you want to change about you? (Bio | Education | Work | Relationship Status");
@@ -64,32 +64,32 @@ public class Profile {
 			String newBio;
 			System.out.println("Enter your new biography...");
 			newBio = console.nextLine();
-			setBiography(newBio);
+			currentProfile.setBiography(newBio);
 			break;
 		case "Education":
 		case "education":
 			String newEdu;
 			System.out.println("Enter your new education...");
 			newEdu = console.nextLine();
-			setEducation(newEdu);
+			currentProfile.setEducation(newEdu);
 			break;
 		case "Work":
 		case "work":
 			String newWork;
 			System.out.println("Enter your new work...");
 			newWork = console.nextLine();
-			setWork(newWork);
+			currentProfile.setWork(newWork);
 			break;
 		case "Relationship status":
 		case "relationship status":
 			String newRS;
 			System.out.println("Enter your new relationship status...");
 			newRS = console.nextLine();
-			setRelationshipStatus(newRS);
+			currentProfile.setRelationshipStatus(newRS);
 			break;
 		default:
 			System.out.println("Option does not exist, try again.");
-			setAbout();
+			setAbout(currentProfile);
 		}
 	}
 	
