@@ -46,7 +46,31 @@ public class User {
 		for (int x = 0; x < User.allUsers.size(); x++) {
 				if(email.equals(User.allUsers.get(x).getEmail()) && password.equals(User.allUsers.get(x).getPassword())) {
 					System.out.println("Login successful!");
-					currentSession(User.allUsers.get(x));
+					showMainMenu();
+					int choice = console.nextInt();					
+					switch(choice) {
+					case 1:
+						Feed.search();
+						break;
+					case 2:
+						Feed.populateFeed();
+						break;
+					case 3:
+						currentSession(User.allUsers.get(x));
+						break;
+					case 4:
+						// Chat.
+						break;
+					case 5:
+						signout();
+						break;
+					default:
+						System.out.println("Invalid choice! Please try again.");
+						choice = console.nextInt();
+						while(choice < 1 || choice > 5) {
+							choice = console.nextInt();
+						}
+					}
 				} else {
 					/* Handle Login failure. */
 				}
@@ -107,18 +131,22 @@ public class User {
 			currentSession.friends.view();
 			break;
 		case 5:
-			
+			// Show groups.
 			break;
 		case 6:
+			// Show pages.
 			break;
 		case 7:
 			Profile.setAbout();
 			break;
 		case 8:
+			// Edit F and F.
 			break;
 		case 9:
+			//Edit G and P.
 			break;
 		default:
+			
 			break;
 		}
 		
@@ -133,33 +161,7 @@ public class User {
 		System.out.println("4. Chat.");
 		System.out.println("5. Sign out.");
 		System.out.print("Choose option: ");
-		System.out.print("~> ");
-		choice = console.nextInt();
-		System.out.println("");
-		
-		switch(choice) {
-		case 1:
-			Feed.search();
-			break;
-		case 2:
-			Feed.populateFeed();
-			break;
-		case 3:
-			break;
-		case 4:
-			
-			break;
-		case 5:
-			signout();
-			break;
-		default:
-			System.out.println("Invalid choice! Please try again.");
-			choice = console.nextInt();
-			while(choice < 1 || choice > 5) {
-				choice = console.nextInt();
-			}
-		}
-		
+		System.out.print("~> ");	
 	}
 	
 	public static void showProfileMenu() {
