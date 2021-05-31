@@ -145,6 +145,22 @@ public class Profile {
 		return this.profilePosts.toString();
 	}
 	
+	public static Profile getProfileByUserName() {
+		Scanner console = new Scanner(System.in);
+		String choice;
+		Profile userProfile = null;
+		System.out.print("Search by username: ");
+		choice = console.nextLine();
+		System.out.println("");
+		
+		for (int x = 0; x < User.allUsers.size(); x++) {
+			if (User.allUsers.get(x).userName.equals(choice)) {
+				userProfile = User.allUsers.get(x);
+			}
+	      }   	
+		
+		return userProfile;
+	}
 
 	
 }

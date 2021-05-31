@@ -141,6 +141,7 @@ public class User {
 			break;
 		case 8:
 			// Edit F and F.
+			currentSession.friends.editFriendsAndFollowers(currentSession);
 			break;
 		case 9:
 			//Edit G and P.
