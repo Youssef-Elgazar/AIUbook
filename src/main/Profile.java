@@ -13,6 +13,8 @@ public class Profile {
 	private String work;
 	private String relationshipStatus;
 	public ArrayList<Post> profilePosts;
+	public ArrayList<Group> profileGroups;
+	public ArrayList<Page> profilePages;
 	
 	public Profile(String email, String password, String gender, int age, String userName) {
 		 this.gender = gender;

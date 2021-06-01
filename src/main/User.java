@@ -3,6 +3,8 @@ import java.util.*;
 
 public class User {
 	public static ArrayList<Profile> allUsers = new ArrayList<Profile>();
+	public static ArrayList<Group> allGroups = new ArrayList<Group>();
+	public static ArrayList<Page> allPages = new ArrayList<Page>();
 	
 	
 	public static void main(String[] args) {
@@ -145,9 +147,11 @@ public class User {
 			break;
 		case 9:
 			//Edit G and P.
+			Group.editPagesAndGroups(currentSession);
 			break;
 		default:
-			
+			System.out.println("Invalid choice! Try again.");
+			currentSession(currentSession);
 			break;
 		}
 		
