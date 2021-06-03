@@ -53,18 +53,28 @@ public class User {
 					switch(choice) {
 					case 1:
 						Feed.search();
+						System.out.println("Press any key to continue....");
+						console.nextLine();
+						showMainMenu();
 						break;
 					case 2:
 						Feed.populateFeed();
+						System.out.println("Press any key to continue....");
+						console.nextLine();
+						showMainMenu();
 						break;
 					case 3:
 						currentSession(User.allUsers.get(x));
+						System.out.println("Press any key to continue....");
+						console.nextLine();
+						showMainMenu();
 						break;
 					case 4:
 						// Chat.
 						break;
 					case 5:
 						signout();
+						startup();
 						break;
 					default:
 						System.out.println("Invalid choice! Please try again.");
@@ -117,6 +127,9 @@ public class User {
 		switch(choice) {
 		case 1:
 			currentSession.getAbout();
+			System.out.println("Press any key to continue....");
+			console.nextLine();
+			showProfileMenu();
 			break;
 		case 2:
 			String postContent, postPrivacy;
@@ -125,33 +138,65 @@ public class User {
 			System.out.println("Who do you want to show this to? (Public | Friends)");
 			postPrivacy = console.nextLine();
 			Post.makePost(postContent, postPrivacy, currentSession);
+			System.out.println("Press any key to continue....");
+			console.nextLine();
+			showProfileMenu();
 			break;
 		case 3:
 			currentSession.getProfilePosts();
+			System.out.println("Press any key to continue....");
+			console.nextLine();
+			showProfileMenu();
 			break;
 		case 4:
 			currentSession.friends.view();
+			System.out.println("Press any key to continue....");
+			console.nextLine();
+			showProfileMenu();
 			break;
 		case 5:
 			// Show groups.
+			currentSession.profileGroups.toString();
+			System.out.println("Press any key to continue....");
+			console.nextLine();
+			showProfileMenu();
 			break;
 		case 6:
 			// Show pages.
+			currentSession.profilePages.toString();
+			System.out.println("Press any key to continue....");
+			console.nextLine();
+			showProfileMenu();
 			break;
 		case 7:
 			Profile.setAbout(currentSession);
+			System.out.println("Press any key to continue....");
+			console.nextLine();
+			showProfileMenu();
 			break;
 		case 8:
 			// Edit F and F.
 			currentSession.friends.editFriendsAndFollowers(currentSession);
+			System.out.println("Press any key to continue....");
+			console.nextLine();
+			showProfileMenu();
 			break;
 		case 9:
 			//Edit G and P.
 			Group.editPagesAndGroups(currentSession);
+			System.out.println("Press any key to continue....");
+			console.nextLine();
+			showProfileMenu();
+			break;
+		case 0:
+			// Back to previous menu.
 			break;
 		default:
 			System.out.println("Invalid choice! Try again.");
 			currentSession(currentSession);
+			System.out.println("Press any key to continue....");
+			console.nextLine();
+			showProfileMenu();
 			break;
 		}
 		
@@ -180,6 +225,7 @@ public class User {
 		System.out.println("7. Edit about."); //******************************
 		System.out.println("8. Edit friends and followers.");
 		System.out.println("9. Edit pages and groups.");
+		// System.out.println("0. Back to main menu.");
 		System.out.print("Choose option: ");
 		System.out.print("~> ");
 	}

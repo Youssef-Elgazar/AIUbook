@@ -42,21 +42,37 @@ public class Friends {
 			System.out.println("2. Remove friend.");
 			System.out.println("3. Add follower.");
 			System.out.println("4. Remove follower.");
+			// System.out.println("5. Back to profile menu.");
 			System.out.print("~> ");
 			choice = console.nextInt();
 			System.out.println("");
 			switch(choice) {
 			case 1:
 				addFriend(Profile.getProfileByUserName());
+				System.out.println("Press any key to continue....");
+				console.nextLine();
+				editFriendsAndFollowers(currentProfile);
 				break;
 			case 2:
 				removeFriend(Profile.getProfileByUserName());
+				System.out.println("Press any key to continue....");
+				console.nextLine();
+				editFriendsAndFollowers(currentProfile);
 				break;
 			case 3:
 				follow(Profile.getProfileByUserName());
+				System.out.println("Press any key to continue....");
+				console.nextLine();
+				editFriendsAndFollowers(currentProfile);
 				break;
 			case 4:
 				unfollow(Profile.getProfileByUserName());
+				System.out.println("Press any key to continue....");
+				console.nextLine();
+				editFriendsAndFollowers(currentProfile);
+				break;
+			case 5:
+				// Back to previous menu.
 				break;
 			default:
 				System.out.println("Invalid choice! Please try again.");

@@ -59,6 +59,7 @@ public class Group {
 		System.out.println("2. Remove group.");
 		System.out.println("3. Add page.");
 		System.out.println("4. Remove page.");
+		// System.out.println("5. Back to profile menu.");
 		System.out.print("~> ");
 		choice = console.nextInt();
 		System.out.println("");
@@ -66,15 +67,30 @@ public class Group {
 		switch(choice) {
 		case 1:
 			join(currentProfile, getGroupByName());
+			System.out.println("Press any key to continue....");
+			console.nextLine();
+			editPagesAndGroups(currentProfile);
 			break;
 		case 2:
 			removeGroup(currentProfile, getGroupByName());
+			System.out.println("Press any key to continue....");
+			console.nextLine();
+			editPagesAndGroups(currentProfile);
 			break;
 		case 3:
 			Page.follow(currentProfile, Page.getPageByName());
+			System.out.println("Press any key to continue....");
+			console.nextLine();
+			editPagesAndGroups(currentProfile);
 			break;
 		case 4:
 			Page.removePage(currentProfile, Page.getPageByName());
+			System.out.println("Press any key to continue....");
+			console.nextLine();
+			editPagesAndGroups(currentProfile);
+			break;
+		case 5:
+			// Back to previous menu.
 			break;
 		default:
 			System.out.println("Invalid choice! Please try again.");
