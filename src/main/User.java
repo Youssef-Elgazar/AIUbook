@@ -1,4 +1,5 @@
 package main;
+
 import java.util.*;
 
 public class User {
@@ -213,7 +214,7 @@ public class User {
 		default:
 			System.out.println("Invalid choice! Please try again.");
 			showMainMenu(currentProfile);
-			
+
 		}
 	}
 

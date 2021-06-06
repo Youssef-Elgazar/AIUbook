@@ -12,8 +12,6 @@ public class Chat {
 		this.userOne = user1;
 		this.userTwo = user2;
 	}
-	
-	
 
 	public static void chooseReceiver(Profile sender) {
 		Scanner console = new Scanner(System.in);
@@ -28,14 +26,15 @@ public class Chat {
 				break;
 			}
 		}
+		System.out.println("Type \"Uscita\" to exit to main menu.");
+		System.out.println("Type a message..");
 		sendMessage(sender, receiver);
 	}
 
 	public static void sendMessage(Profile sender, Profile receiver) {
 		Scanner console = new Scanner(System.in);
-		System.out.println("Type a message..");
 		String messgContent = console.next();
-		
+
 		if (messgContent.equals("Uscita") || messgContent.equals("uscita")) {
 			User.showMainMenu(sender);
 		} else {

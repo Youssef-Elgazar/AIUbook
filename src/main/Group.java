@@ -1,4 +1,5 @@
 package main;
+
 import java.util.*;
 
 public class Group {
@@ -7,39 +8,38 @@ public class Group {
 	private ArrayList<String> followers = new ArrayList<String>();
 	protected String about;
 
-	
 	public void makeGroup() {
 		Group newGroup = new Group();
 		System.out.println("Enter your group name");
 		newGroup.setName(name);
-		
+
 		System.out.println("What is your group about?");
 		newGroup.setAbout(about);
-		
+
 		User.allGroups.add(newGroup);
 	}
-	
+
 	static void join(Profile newMember, Group group) {
 		newMember.profileGroups.add(group);
 	}
-	
+
 	static void removeGroup(Profile member, Group group) {
 		member.profileGroups.remove(group);
 	}
-	
+
 	public void setName(String name) {
 		try {
 			this.name = name;
-		}
-		catch  (InputMismatchException ex){
+		} catch (InputMismatchException ex) {
 			System.out.println("Invalid input");
 		}
-	
+
 	}
+
 	public void setAbout(String About) {
 		this.about = About;
 	}
-	
+
 	public static Group getGroupByName() {
 		Group desiredGroup = null;
 		Scanner console = new Scanner(System.in);
@@ -47,17 +47,17 @@ public class Group {
 		System.out.print("Search by group name: ");
 		choice = console.nextLine();
 		System.out.println("");
-		
+
 		for (int x = 0; x < User.allGroups.size(); x++) {
 			if (User.allGroups.get(x).name.equals(choice)) {
 				desiredGroup = User.allGroups.get(x);
 			}
-	      }   	
-		
+		}
+
 		return desiredGroup;
-		
+
 	}
-	
+
 	public static void editPagesAndGroups(Profile currentProfile) {
 		Scanner console = new Scanner(System.in);
 		int choice;
@@ -69,8 +69,8 @@ public class Group {
 		System.out.print("~> ");
 		choice = console.nextInt();
 		System.out.println("");
-		
-		switch(choice) {
+
+		switch (choice) {
 		case 1:
 			join(currentProfile, getGroupByName());
 			System.out.println("Press any key to continue....");
@@ -103,8 +103,7 @@ public class Group {
 			System.out.println("Invalid choice! Please try again.");
 			editPagesAndGroups(currentProfile);
 		}
-		
+
 	}
-	
-	
+
 }

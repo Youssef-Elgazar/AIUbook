@@ -17,10 +17,9 @@ public class Profile implements Serializable {
 	public ArrayList<Post> profilePosts;
 	public ArrayList<Group> profileGroups;
 	public ArrayList<Page> profilePages;
-	
-	
+
 	public Profile(String email, String password, String gender, int age, String userName) {
-		
+
 		this.gender = gender;
 		this.age = age;
 		this.userName = userName;
@@ -49,30 +48,31 @@ public class Profile implements Serializable {
 	public void setRelationshipStatus(String relationStatus) {
 		this.relationshipStatus = relationStatus;
 		switch (relationStatus) {
-		
-		case(("Married")):
-		case(("married")):	
-			 relationStatus.equals("Married");
+
+		case (("Married")):
+		case (("married")):
+			relationStatus.equals("Married");
 			break;
-			
-		case(("Single")):
-		case(("single")):
-			 relationStatus.equals("Single");
+
+		case (("Single")):
+		case (("single")):
+			relationStatus.equals("Single");
 			break;
-		
-		case(("Engaged")):
-		case(("engaged")):
-			 relationStatus.equals("Engaged");
+
+		case (("Engaged")):
+		case (("engaged")):
+			relationStatus.equals("Engaged");
 			break;
-		
-		case((" Complicated")):
-		case(("complicated")):	
-			 relationStatus.equals("It's Complicated");
-			 break;
-		
-		default: 
+
+		case ((" Complicated")):
+		case (("complicated")):
+			relationStatus.equals("It's Complicated");
+			break;
+
+		default:
 			System.out.println("Invalid Input, Please Try Again!");
-	}}
+		}
+	}
 
 	public void setProfilePosts(Post newPost) {
 		this.profilePosts.add(newPost);
@@ -168,7 +168,7 @@ public class Profile implements Serializable {
 		System.out.println("Gender: " + getGender());
 		System.out.println("Education: " + getEdu());
 		System.out.println("Work: " + getWork());
-		System.out.println("Relationship status: (Married | Engaged | Single | Complicated "    + getRS());
+		System.out.println("Relationship status: (Married | Engaged | Single | Complicated " + getRS());
 		System.out.println("Biography: " + getBio());
 	}
 
