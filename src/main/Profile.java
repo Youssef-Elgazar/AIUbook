@@ -1,7 +1,9 @@
 package main;
+
+import java.io.*;
 import java.util.*;
 
-public class Profile {
+public class Profile implements Serializable {
 	private String email;
 	private String password;
 	private String gender;
@@ -16,51 +18,76 @@ public class Profile {
 	public ArrayList<Group> profileGroups;
 	public ArrayList<Page> profilePages;
 	
-	public Profile(String email, String password, String gender, int age, String userName) {
-		 this.gender = gender;
-		 this.age = age;
-		 this.userName = userName;
-		 this.email = email;
-		 this.password = password;
+	public static void main(String[] args) throws IOException, ClassNotFoundException {
+		File serialFile = new File("test.txt");
+		FileOutputStream fo = new FileOutputStream(serialFile);
+		ObjectOutputStream objOut = new ObjectOutputStream(fo);
+		for(Profile user : User.allUsers) {
+			objOut.writeObject(user);
+		}
+		objOut.close();
+		fo.close();
+		
+		// Deserialzation.
+		
+		FileInputStream fi = new FileInputStream(serialFile);
+		ObjectInputStream obIn = new ObjectInputStream(fi);
+		
+		try {
+			while(true) {
+				Profile serialUser = (Profile) obIn.readObject();
+				User.allUsers.add((serialUser));
+			}
+		} catch (EOFException e) {
+			
+		}
 	}
 	
+	public Profile(String email, String password, String gender, int age, String userName) {
+		this.gender = gender;
+		this.age = age;
+		this.userName = userName;
+		this.email = email;
+		this.password = password;
+	}
+
 	public static void makeProfile(String email, String password, String gender, int age, String userName) {
 		Profile newProfile = new Profile(email, password, gender, age, userName);
-		
+
 		User.allUsers.add(newProfile);
 	}
-	
+
 	public void setBiography(String bio) {
 		this.biography = bio;
 	}
-	
+
 	public void setEducation(String edu) {
 		this.education = edu;
 	}
-	
+
 	public void setWork(String work) {
 		this.work = work;
 	}
-	
+
 	public void setRelationshipStatus(String relationStatus) {
 		this.relationshipStatus = relationStatus;
 	}
-	
+
 	public void setProfilePosts(Post newPost) {
 		this.profilePosts.add(newPost);
 	}
-	
+
 	public void setNewPassword(String newPassword) {
 		/* Enter old password before changing password. */
 	}
-	
+
 	public static void setAbout(Profile currentProfile) {
 		Scanner console = new Scanner(System.in);
 		String choice;
 		System.out.println("What do you want to change about you? (Bio | Education | Work | Relationship Status");
 		choice = console.nextLine();
-		
-		switch(choice) {
+
+		switch (choice) {
 		case "Bio":
 		case "bio":
 			String newBio;
@@ -94,45 +121,45 @@ public class Profile {
 			setAbout(currentProfile);
 		}
 	}
-	
+
 	/* =========================== */
-	
+
 	public String getGender() {
 		return this.gender;
 	}
-	
+
 	public int getAge() {
 		return this.age;
 	}
-	
+
 	public String getBio() {
 		return this.biography;
 	}
-	
+
 	public String getEdu() {
 		return this.education;
 	}
-	
+
 	public String getWork() {
 		return this.work;
 	}
-	
+
 	public String getRS() {
 		return this.relationshipStatus;
 	}
-	
+
 	public String getEmail() {
 		return this.email;
 	}
-	
+
 	public String getPassword() {
 		return this.password;
 	}
-	
+
 	public String getUserName() {
 		return this.userName;
 	}
-	
+
 	public void getAbout() {
 		System.out.println("Username: " + getUserName());
 		System.out.println("Age: " + getAge());
@@ -142,11 +169,11 @@ public class Profile {
 		System.out.println("Relationship status: " + getRS());
 		System.out.println("Biography: " + getBio());
 	}
-	
+
 	public String getProfilePosts() {
 		return this.profilePosts.toString();
 	}
-	
+
 	public static Profile getProfileByUserName() {
 		Scanner console = new Scanner(System.in);
 		String choice;
@@ -154,15 +181,14 @@ public class Profile {
 		System.out.print("Search by username: ");
 		choice = console.nextLine();
 		System.out.println("");
-		
+
 		for (int x = 0; x < User.allUsers.size(); x++) {
 			if (User.allUsers.get(x).userName.equals(choice)) {
 				userProfile = User.allUsers.get(x);
 			}
-	      }   	
-		
+		}
+
 		return userProfile;
 	}
 
-	
 }
