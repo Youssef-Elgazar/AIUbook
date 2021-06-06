@@ -8,7 +8,7 @@ public class Chat {
 	Chat(Profile sender, Profile reciever, ArrayList messages){
 	
 		Message.chooseReceiver(sender);
-			Message.enterMessage()
+//			Message.enterMessage()
 		
 	}
 

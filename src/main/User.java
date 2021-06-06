@@ -212,10 +212,8 @@ public class User {
 			break;
 		default:
 			System.out.println("Invalid choice! Please try again.");
-			choice = console.nextInt();
-			while (choice < 1 || choice > 5) {
-				choice = console.nextInt();
-			}
+			showMainMenu(currentProfile);
+			
 		}
 	}
 

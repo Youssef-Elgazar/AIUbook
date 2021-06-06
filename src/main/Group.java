@@ -12,6 +12,7 @@ public class Group {
 		Group newGroup = new Group();
 		System.out.println("Enter your group name");
 		newGroup.setName(name);
+		
 		System.out.println("What is your group about?");
 		newGroup.setAbout(about);
 		
@@ -27,9 +28,14 @@ public class Group {
 	}
 	
 	public void setName(String name) {
-		this.name = name;
-	}
+		try {
+			this.name = name;
+		}
+		catch  (InputMismatchException ex){
+			System.out.println("Invalid input");
+		}
 	
+	}
 	public void setAbout(String About) {
 		this.about = About;
 	}

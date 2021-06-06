@@ -13,37 +13,14 @@ public class Profile implements Serializable {
 	private String biography;
 	private String education;
 	private String work;
-	private String relationshipStatus;
+	private static String relationshipStatus;
 	public ArrayList<Post> profilePosts;
 	public ArrayList<Group> profileGroups;
 	public ArrayList<Page> profilePages;
 	
-	public static void main(String[] args) throws IOException, ClassNotFoundException {
-		File serialFile = new File("test.txt");
-		FileOutputStream fo = new FileOutputStream(serialFile);
-		ObjectOutputStream objOut = new ObjectOutputStream(fo);
-		for(Profile user : User.allUsers) {
-			objOut.writeObject(user);
-		}
-		objOut.close();
-		fo.close();
-		
-		// Deserialzation.
-		
-		FileInputStream fi = new FileInputStream(serialFile);
-		ObjectInputStream obIn = new ObjectInputStream(fi);
-		
-		try {
-			while(true) {
-				Profile serialUser = (Profile) obIn.readObject();
-				User.allUsers.add((serialUser));
-			}
-		} catch (EOFException e) {
-			
-		}
-	}
 	
 	public Profile(String email, String password, String gender, int age, String userName) {
+		
 		this.gender = gender;
 		this.age = age;
 		this.userName = userName;
@@ -71,7 +48,31 @@ public class Profile implements Serializable {
 
 	public void setRelationshipStatus(String relationStatus) {
 		this.relationshipStatus = relationStatus;
-	}
+		switch (relationStatus) {
+		
+		case(("Married")):
+		case(("married")):	
+			 relationStatus.equals("Married");
+			break;
+			
+		case(("Single")):
+		case(("single")):
+			 relationStatus.equals("Single");
+			break;
+		
+		case(("Engaged")):
+		case(("engaged")):
+			 relationStatus.equals("Engaged");
+			break;
+		
+		case((" Complicated")):
+		case(("complicated")):	
+			 relationStatus.equals("It's Complicated");
+			 break;
+		
+		default: 
+			System.out.println("Invalid Input, Please Try Again!");
+	}}
 
 	public void setProfilePosts(Post newPost) {
 		this.profilePosts.add(newPost);
@@ -115,6 +116,7 @@ public class Profile implements Serializable {
 			System.out.println("Enter your new relationship status...");
 			newRS = console.nextLine();
 			currentProfile.setRelationshipStatus(newRS);
+			System.out.println(relationshipStatus);
 			break;
 		default:
 			System.out.println("Option does not exist, try again.");
@@ -166,7 +168,7 @@ public class Profile implements Serializable {
 		System.out.println("Gender: " + getGender());
 		System.out.println("Education: " + getEdu());
 		System.out.println("Work: " + getWork());
-		System.out.println("Relationship status: " + getRS());
+		System.out.println("Relationship status: (Married | Engaged | Single | Complicated "    + getRS());
 		System.out.println("Biography: " + getBio());
 	}
 
