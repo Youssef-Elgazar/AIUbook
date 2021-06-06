@@ -12,6 +12,8 @@ public class Chat {
 		this.userOne = user1;
 		this.userTwo = user2;
 	}
+	
+	
 
 	public static void chooseReceiver(Profile sender) {
 		Scanner console = new Scanner(System.in);
@@ -23,6 +25,7 @@ public class Chat {
 		for (int x = 0; x < User.allUsers.size(); x++) {
 			if (receiverName.equals(User.allUsers.get(x).getUserName())) {
 				receiver = User.allUsers.get(x);
+				break;
 			}
 		}
 		sendMessage(sender, receiver);
@@ -37,6 +40,7 @@ public class Chat {
 			User.showMainMenu(sender);
 		} else {
 			Chat.messages.add(new Message(sender, receiver, messgContent));
+			sendMessage(sender, receiver);
 		}
 	}
 

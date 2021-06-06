@@ -29,7 +29,7 @@ public class Profile implements Serializable {
 		fo.close();
 		
 		// Deserialzation.
-		
+		ArrayList<Profile> users2 = new ArrayList<Profile>();
 		FileInputStream fi = new FileInputStream(serialFile);
 		ObjectInputStream obIn = new ObjectInputStream(fi);
 		

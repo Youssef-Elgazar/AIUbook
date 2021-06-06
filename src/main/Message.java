@@ -13,4 +13,9 @@ public class Message {
 		this.receiver = receiver;
 		this.content = content;
 	}
+	
+	@Override
+	   public String toString() {
+	        return this.content;
+	}
 }

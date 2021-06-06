@@ -52,7 +52,7 @@ public class User {
 
 			} else {
 				/* Handle Login failure. */
-				System.out.println("Invalid email or password. Please try again.");
+				// System.out.println("Invalid email or password. Please try again.");
 			}
 		}
 	}
