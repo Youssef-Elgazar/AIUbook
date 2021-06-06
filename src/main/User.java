@@ -204,7 +204,7 @@ public class User {
 			break;
 		case 4:
 			// Chat.
-			Message.chooseReceiver(currentProfile);
+			Chat.chooseReceiver(currentProfile);
 			break;
 		case 5:
 			signout();
