@@ -52,7 +52,7 @@ public class User {
 
 			} else {
 				/* Handle Login failure. */
-				System.out.println("Invalid email or password. Please try again.");
+				// System.out.println("Invalid email or password. Please try again.");
 			}
 		}
 	}
@@ -204,7 +204,7 @@ public class User {
 			break;
 		case 4:
 			// Chat.
-			Message.chooseReceiver(currentProfile);
+			Chat.chooseReceiver(currentProfile);
 			break;
 		case 5:
 			signout();
