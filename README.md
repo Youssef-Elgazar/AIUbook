@@ -1,4 +1,4 @@
 # AIUbook
 ### Dictatorship at it's finest.
- 
- Made with hate <3
+A TUI Facebook clone - OOP course final project.
+Made with hate <3
